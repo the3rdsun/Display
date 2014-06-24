@@ -1,14 +1,25 @@
 #define ON LOW
 #define OFF HIGH
 
-int ledA = 2;
-int ledB = 3;
-int ledC = 4;
-int ledD = 5;
-int ledE = 6;
-int ledF = 7;
-int ledG = 8;
-int ledDP = 9;
+#define PATTERN_0 0xc0
+#define PATTERN_1 0xf9
+#define PATTERN_2 0xa4
+#define PATTERN_3 0xb0
+#define PATTERN_4 0x99
+#define PATTERN_5 0x92
+#define PATTERN_6 0x82
+#define PATTERN_7 0xf8
+#define PATTERN_8 0x80
+#define PATTERN_9 0x98
+
+int ledA = 0;
+int ledB = 1;
+int ledC = 2;
+int ledD = 3;
+int ledE = 4;
+int ledF = 5;
+int ledG = 6;
+int ledDP = 7;
 
 int CM1 = 10;
 int CM2 = 11;
@@ -55,130 +66,36 @@ void setup() {
  
 }
 
-void display0() {
-  digitalWrite(ledA, ON);
-  digitalWrite(ledB, ON);
-  digitalWrite(ledC, ON);
-  digitalWrite(ledD, ON);
-  digitalWrite(ledE, ON);
-  digitalWrite(ledF, ON);
-  delayMicroseconds(500);
- 
-}
-
-void display1() {
-  digitalWrite(ledB, ON);
-  digitalWrite(ledC, ON);
-  delayMicroseconds(500);
-  
-}
-
-void display2() {
-  digitalWrite(ledA, ON);
-  digitalWrite(ledB, ON);
-  digitalWrite(ledD, ON);
-  digitalWrite(ledE, ON);
-  digitalWrite(ledG, ON);
-  delayMicroseconds(500);
-  
-}
-
-void display3() {
-  digitalWrite(ledA, ON);
-  digitalWrite(ledB, ON);
-  digitalWrite(ledC, ON);
-  digitalWrite(ledD, ON);
-  digitalWrite(ledG, ON);
-  delayMicroseconds(500);
-
-}
-
-void display4() {
-  digitalWrite(ledB, ON);
-  digitalWrite(ledC, ON);
-  digitalWrite(ledF, ON);
-  digitalWrite(ledG, ON);
-  delayMicroseconds(500);
-
-}
-
-void display5() {
-  digitalWrite(ledA, ON);
-  digitalWrite(ledC, ON);
-  digitalWrite(ledD, ON);
-  digitalWrite(ledF, ON);
-  digitalWrite(ledG, ON);
-  delayMicroseconds(500);
-
-}
-
-void display6() {
-  digitalWrite(ledA, ON);
-  digitalWrite(ledC, ON);
-  digitalWrite(ledD, ON);
-  digitalWrite(ledE, ON);
-  digitalWrite(ledF, ON);
-  digitalWrite(ledG, ON);
-  delayMicroseconds(500);
-
-}
-
-void display7() {
-  digitalWrite(ledA, ON);
-  digitalWrite(ledB, ON);
-  digitalWrite(ledC, ON);
-  delayMicroseconds(500);
-
-}
-
-void display8() {
-  digitalWrite(ledA, ON);
-  digitalWrite(ledB, ON);
-  digitalWrite(ledC, ON);
-  digitalWrite(ledD, ON);
-  digitalWrite(ledE, ON);
-  digitalWrite(ledF, ON);
-  digitalWrite(ledG, ON);
-  delayMicroseconds(500);
-
-}
-
-void display9() {
-  digitalWrite(ledA, ON);
-  digitalWrite(ledB, ON);
-  digitalWrite(ledC, ON);
-  digitalWrite(ledF, ON);
-  digitalWrite(ledG, ON);
-  delayMicroseconds(500);
-
-}
-
 // the loop routine runs over and over again forever:
 void loop() {
   //Display pattern 1
   digitalWrite(CM1, HIGH);
-  display5();
+  PORTD = PATTERN_8;
+  delayMicroseconds(500);
   
   //Turn it off
   allOff();
   
   //Display pattern 2
   digitalWrite(CM2, HIGH);
-  display6();
+  PORTD = PATTERN_9;
+  delayMicroseconds(500);
   
   //Turn it off
   allOff();
   
   //Display pattern 3
   digitalWrite(CM3, HIGH);
-  display7();
+  PORTD = PATTERN_1;
+  delayMicroseconds(500);
   
   //Turn it off
   allOff();
   
   //Display pattern 4
   digitalWrite(CM4, HIGH);
-  display8();
+  PORTD = PATTERN_0;
+  delayMicroseconds(500);
   
   //Turn it off
   allOff();
