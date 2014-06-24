@@ -12,8 +12,8 @@
 #define PATTERN_8 0x80
 #define PATTERN_9 0x98
 
-int ledA = 0;
-int ledB = 1;
+int ledA = 8;
+int ledB = 9;
 int ledC = 2;
 int ledD = 3;
 int ledE = 4;
@@ -63,57 +63,94 @@ void setup() {
   pinMode(CM4, OUTPUT);
   
   allOff();
+  
+  Serial.begin(115200);
+  Serial.println("Hello World!");
  
 }
 
-void displayDigit(int common, int pattern) {
-  if (pattern == 0) {
-    PORTD = PATTERN_0;
+void displayDigit(int common, int digit) {
+  int pattern;
+  int left;
+  
+  //First convert a digit into a pattern
+  
+  if (digit == 0) {
+    pattern = PATTERN_0;
     
   }
   
-  if (pattern == 1) {
-    PORTD = PATTERN_1; 
+  if (digit == 1) {
+    pattern = PATTERN_1; 
     
   }
   
-  if (pattern == 2) {
-    PORTD = PATTERN_2; 
+  if (digit == 2) {
+    pattern = PATTERN_2; 
     
   }
   
-  if (pattern == 3) {
-    PORTD = PATTERN_3; 
+  if (digit == 3) {
+    pattern = PATTERN_3; 
     
   }
   
-  if (pattern == 4) {
-    PORTD = PATTERN_4; 
+  if (digit == 4) {
+    pattern = PATTERN_4; 
     
   }
   
-  if (pattern == 5) {
-    PORTD = PATTERN_5; 
+  if (digit == 5) {
+    pattern = PATTERN_5; 
     
   }
   
-  if (pattern == 6) {
-    PORTD = PATTERN_6; 
+  if (digit == 6) {
+    pattern = PATTERN_6; 
     
   }
   
-  if (pattern == 7) {
-    PORTD = PATTERN_7; 
+  if (digit == 7) {
+    pattern = PATTERN_7; 
     
   }
   
-  if (pattern == 8) {
-    PORTD = PATTERN_8; 
+  if (digit == 8) {
+    pattern = PATTERN_8; 
     
   }
   
-  if (pattern == 9) {
-    PORTD = PATTERN_9; 
+  if (digit == 9) {
+    pattern = PATTERN_9; 
+    
+  }
+  
+  //Split out the A and B segements and write them to pins 8 and 9
+  //Pins 0 and 1 used for serial port
+  
+  left = pattern & 0xfc;
+  
+  //Now write to the hardware
+  PORTD = left;
+  
+  //Pattern constants inverted so OFF = ON and ON = OFF
+  if ((pattern & 0x01) == 0x01) {
+    digitalWrite(ledA, OFF);
+    
+  }
+  
+  else {
+    digitalWrite(ledA, ON); 
+    
+  }
+  
+  if ((pattern & 0x02) == 0x02) {
+    digitalWrite(ledB, OFF);
+    
+  }
+  
+  else {
+    digitalWrite(ledB, ON); 
     
   }
   
