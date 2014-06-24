@@ -66,7 +66,7 @@ void setup() {
 
   allOff();
 
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Type in 4 digits:");
   
 }
