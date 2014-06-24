@@ -66,8 +66,77 @@ void setup() {
  
 }
 
-void displayPattern(int common, int pattern) {
-  PORTD = pattern;
+void displayDigit(int common, int pattern) {
+  if (pattern == 0) {
+    PORTD = PATTERN_0;
+    
+  }
+  
+  if (pattern == 1) {
+    PORTD = PATTERN_1; 
+    
+  }
+  
+  if (pattern == 2) {
+    PORTD = PATTERN_2; 
+    
+  }
+  
+  if (pattern == 3) {
+    PORTD = PATTERN_3; 
+    
+  }
+  
+  if (pattern == 4) {
+    PORTD = PATTERN_4; 
+    
+  }
+  
+  if (pattern == 5) {
+    PORTD = PATTERN_5; 
+    
+  }
+  
+  if (pattern == 6) {
+    PORTD = PATTERN_6; 
+    
+  }
+  
+  if (pattern == 7) {
+    PORTD = PATTERN_7; 
+    
+  }
+  
+  if (pattern == 8) {
+    PORTD = PATTERN_8; 
+    
+  }
+  
+  if (pattern == 9) {
+    PORTD = PATTERN_9; 
+    
+  }
+  
+  if (common == 1) {
+    common = CM1; 
+    
+  }
+  
+  if (common == 2) {
+    common = CM2; 
+    
+  }
+  
+  if (common == 3) {
+    common = CM3; 
+    
+  }
+  
+  if (common == 4) {
+    common = CM4; 
+    
+  }
+  
   digitalWrite(common, HIGH);
   delayMicroseconds(500);
   digitalWrite(common, LOW);
@@ -76,41 +145,9 @@ void displayPattern(int common, int pattern) {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  //Display pattern 1
-  /*digitalWrite(CM1, HIGH);
-  PORTD = PATTERN_8;
-  delayMicroseconds(500);
-  
-  //Turn it off
-  allOff();
-  
-  //Display pattern 2
-  digitalWrite(CM2, HIGH);
-  PORTD = PATTERN_9;
-  delayMicroseconds(500);
-  
-  //Turn it off
-  allOff();
-  
-  //Display pattern 3
-  digitalWrite(CM3, HIGH);
-  PORTD = PATTERN_1;
-  delayMicroseconds(500);
-  
-  //Turn it off
-  allOff();
-  
-  //Display pattern 4
-  digitalWrite(CM4, HIGH);
-  PORTD = PATTERN_0;
-  delayMicroseconds(500);
-  
-  //Turn it off
-  allOff();*/
-  
-  displayPattern(CM1, PATTERN_4);
-  displayPattern(CM2, PATTERN_8);
-  displayPattern(CM3, PATTERN_1);
-  displayPattern(CM4, PATTERN_0);
+  displayDigit(1, 2);
+  displayDigit(2, 4);
+  displayDigit(3, 9);
+  displayDigit(4, 0);
   
 }
