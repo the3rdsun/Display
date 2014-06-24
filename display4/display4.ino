@@ -66,10 +66,18 @@ void setup() {
  
 }
 
+void displayPattern(int common, int pattern) {
+  PORTD = pattern;
+  digitalWrite(common, HIGH);
+  delayMicroseconds(500);
+  digitalWrite(common, LOW);
+  
+}
+
 // the loop routine runs over and over again forever:
 void loop() {
   //Display pattern 1
-  digitalWrite(CM1, HIGH);
+  /*digitalWrite(CM1, HIGH);
   PORTD = PATTERN_8;
   delayMicroseconds(500);
   
@@ -98,6 +106,11 @@ void loop() {
   delayMicroseconds(500);
   
   //Turn it off
-  allOff();
+  allOff();*/
+  
+  displayPattern(CM1, PATTERN_4);
+  displayPattern(CM2, PATTERN_8);
+  displayPattern(CM3, PATTERN_1);
+  displayPattern(CM4, PATTERN_0);
   
 }
