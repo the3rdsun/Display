@@ -26,8 +26,10 @@ int CM2 = 11;
 int CM3 = 12;
 int CM4 = 13;
 
-int delayOn = 1500;
-int delayOff = 500;
+int digit1;
+int digit2;
+int digit3;
+int digit4;
 
 void allOff() {
   digitalWrite(ledA, OFF);
@@ -65,12 +67,20 @@ void setup() {
   allOff();
   
   Serial.begin(115200);
-  Serial.println("Hello World!");
+  
+  while (Serial.available() < 4) {
+    
+  }
+  
+  digit1 = Serial.read();
+  digit2 = Serial.read();
+  digit3 = Serial.read();
+  digit4 = Serial.read();
  
 }
 
 void displayDigit(int common, int digit) {
-  int pattern;
+  int pattern = 0xAA;
   int left;
   
   //First convert a digit into a pattern
@@ -182,9 +192,9 @@ void displayDigit(int common, int digit) {
 
 // the loop routine runs over and over again forever:
 void loop() {
-  displayDigit(1, 2);
-  displayDigit(2, 4);
-  displayDigit(3, 9);
-  displayDigit(4, 0);
+  displayDigit(1, digit1);
+  displayDigit(2, digit2);
+  displayDigit(3, digit3);
+  displayDigit(4, digit4);
   
 }
