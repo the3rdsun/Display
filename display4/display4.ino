@@ -26,10 +26,10 @@ int CM2 = 11;
 int CM3 = 12;
 int CM4 = 13;
 
-int digit1;
-int digit2;
-int digit3;
-int digit4;
+int digit1 = 8;
+int digit2 = 8;
+int digit3 = 8;
+int digit4 = 8;
 
 void allOff() {
   digitalWrite(ledA, OFF);
@@ -67,6 +67,7 @@ void setup() {
   allOff();
 
   Serial.begin(115200);
+  Serial.println("Type in 4 digits:");
   
 }
 
