@@ -23,7 +23,7 @@ while True :
 
 	minSec = str(minute) + str(second)	
 
-	print(minSec)
+	#print(minSec)
 
 	ser.write(str(minSec))
 	time.sleep(1)
